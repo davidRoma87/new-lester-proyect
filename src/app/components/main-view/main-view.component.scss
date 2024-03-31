@@ -1,0 +1,38 @@
+:host ::ng-deep { 
+    .input-email {
+        height: 3rem;
+        padding: 1rem;
+        font-size: 1rem;
+        border-radius: 0.7rem;
+    }
+    
+    .button-register {
+        background: #ff5478;
+        border-radius: 0.7rem;
+        height: 3rem;
+    }
+    
+    .p-button:disabled {
+        background-color: yellow !important;
+        color: #ffffff !important;
+    }
+    .dismiss-button {
+        border-radius: 10px;
+        background-color: #232742
+    }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media only screen and (max-width: 767px) {
+    .desktop-image {
+      display: none; /* Oculta la imagen para escritorio en pantallas pequeñas */
+    }
+}
+  
+  /* Estilos para pantallas grandes (escritorio) */
+  @media only screen and (min-width: 768px) {
+    .mobile-image {
+      display: none; /* Oculta la imagen para móviles en pantallas grandes */
+    }
+}
+

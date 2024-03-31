@@ -1,0 +1,74 @@
+<div class="grid py-0 px-0 md:py-2 lg:py-2 xl:py-2 px-0 md:px-2 lg:px-8 xl:px-8 mx-0 md:px-2 lg:px-8 xl:px-8 flex justify-content-center w-full">
+    <div *ngIf="isModeRegister" class="grid col-12 px-0">
+        <div *ngIf="isMobilSize" class="col-12 md:col-6 lg:col-6 xl:col-6 px-0 mx-0">
+            <img class="mobile-image w-full" src="assets/img/illustration-sign-up-mobile.svg">
+        </div>
+
+        <div class="col-12 md:col-6 lg:col-6 xl:col-6 px-2 md:px-4 lg:px-4 xl:px-4 justify-content-center">
+            <form [formGroup]="newLesterForm">
+                <h1 class="text-left mt-0 md:mt-8 lg:mt-8 xl:mt-8 text-6xl">Stay updated!</h1>
+                <h3 class="text-left">Join 60,000+ product managers receiving monthly updates on:</h3>
+                <span class="flex flex-row">
+                    <img class="h-1rem mr-2" src="assets/img/icon-list.svg"> 
+                    <span>Product discovery and building what matters</span>
+                </span>
+                <span class="flex flex-row py-2">
+                    <img class="h-1rem mr-2" src="assets/img/icon-list.svg"> 
+                    <span>Measuring to ensure updates are a success</span>
+                </span>
+                <span class="flex flex-row">
+                    <img class="h-1rem mr-2" src="assets/img/icon-list.svg"> 
+                    <span>And much more!</span>
+                </span>
+
+                <span class="grid pb-0 pt-4">
+                    <h3 class="col-6 my-0">Email address</h3>
+                    <h3 *ngIf="isEmailIncvalid" class="col-6 my-0 text-right text-red-500">Valid email required</h3>
+                </span>
+                
+                <div>
+                    <input 
+                        #email
+                        class="input-email w-full"
+                        type="text"
+                        pInputText
+                        formControlName="email">
+                </div>
+                                
+                <div class="pt-4">
+                    <button
+                        class="button-register w-full"
+                        type="button"
+                        cursor="pointer"
+                        label="Subscribe to monthly newsletter"
+                        [disabled]="this.email.value.length === 0"
+                        (click)="susbcribeNewlester()"
+                        pButton>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-6 px-4 justify-content-center flex">
+            <img class="pt-6 desktop-image" src="assets/img/illustration-sign-up-desktop.svg">
+        </div>
+    </div>
+
+    <div *ngIf="!isModeRegister"class="grid col-12 px-0">
+        <div class="col-12">
+            <div class="col-12">
+                <img src="./assets/img/icon-success.svg" >
+            </div>
+        
+            <h1 class="text-7xl my-3">Thanks for subscribing!</h1>
+            <p>A confirmation email has been sent to {{this.newLesterForm.get('email')?.value | json}} . Please open it and click the button inside to confirm your sibscription.</p>
+            <button
+                class="dismiss-button w-full mb-4"
+                type="button"
+                pButton
+                label="Dismiss message"
+                (click)="scapeSuccess()"
+            ></button>
+        </div>
+    </div>
+</div>

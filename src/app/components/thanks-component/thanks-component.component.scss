@@ -1,0 +1,15 @@
+:host ::ng-deep {
+    .p-dialog .p-dialog-header {
+        display: none !important;
+    }
+
+    .dismiss-button {
+        border-radius: 10px;
+        background-color: #232742
+    }
+}
+
+.p-button:hover {
+    background-color: #ff634d !important;
+    color: #ffffff !important;
+}
